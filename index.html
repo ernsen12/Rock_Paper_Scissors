@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+</head>
+
+<body>
+  <div class="flex">
+    <header>
+      <div class="header main_header">
+        <figure class="logo">
+          <img src="./images/logo.svg" alt="RPS logo">
+        </figure>
+  
+        <div class="score_board">
+          <p class="score_title">SCORE</p>
+          <div class="score">0</div>
+        </div>
+      </div>
+    </header>
+  
+    <main>
+      <section id="rules" class="rule_display">
+        <div class="rules_title">
+          <h4>RULES</h4>
+        </div>
+
+        <div class="rules_close"> 
+          <img src="./images/icon-close.svg" alt="icon-close">
+        </div>
+       
+        
+        <div class="rules_container">
+          <img src="./images/image-rules.svg" alt="rules">
+        </div>
+      </section>
+  
+      <section id="main_screen">
+        <div class="triangle">
+          <img class="triangle_photo" src="./images/bg-triangle.svg" alt="triangle">
+        </div>
+
+        <div id="paper" class="outer_bg game_btn">
+          <div class="white_bg">
+            <img src="./images/icon-paper.svg" alt="paper">
+          </div>
+        </div> 
+
+        <div id="scissor" class="outer_bg game_btn">
+          <div class="white_bg">
+            <img src="./images/icon-scissors.svg" alt="scissor">
+          </div>
+        </div>
+
+        <div id="rock" class="outer_bg game_btn">
+          <div class="white_bg">
+            <img src="./images/icon-rock.svg" alt="rock">
+          </div>
+        </div> 
+      </section>
+  
+      <section id="battle_screen">
+        <div id="player1"></div>
+        
+        <div id="player2"></div>
+
+        <div class="result_container">
+          <h1 class="result"></h1>
+          <button class="play_again">PLAY AGAIN</button>
+        </div>
+      </section>
+    </main>
+
+   <button class="btn_rule" type="button">RULES</button>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

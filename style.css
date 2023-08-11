@@ -1,0 +1,450 @@
+html{
+    box-sizing: border-box;
+    font-size: 100%;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+body{
+    background: rgb(31,55,86);
+    background: linear-gradient(rgba(31,55,86,1) 0%, rgba(20,21,57,1) 100%);
+    overflow: hidden;
+}
+
+button{ 
+    all: unset; 
+}
+
+.flex{
+    width: 100%;
+    height: 100vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+/* rules */
+.btn_rule{
+    border: 2px solid rgb(96, 110, 133);
+    border-radius: 10px;
+    background: transparent;
+    text-align: center;
+    padding: 12px 36px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 0 auto;
+    color: rgb(247,247,247);
+    font-family: 'Barlow Semi Condensed', sans-serif;;
+}
+
+.btn_rule:hover{
+    cursor: pointer;
+    background: rgb(31,55,86);
+}
+
+#rules{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: rgb(247,247,247);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.rules_title{
+    order: 1;
+    font-size: 24px;
+    color: rgb(59, 67, 99);
+}
+
+.rules_close{
+    order: 3;
+}
+
+#paper:hover, #scissor:hover, #rock:hover, .rules_close:hover, .play_again:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+
+.play_again:hover{
+    color: red;
+}
+
+.rules_container{
+    order: 2;
+}
+
+.rule_display{
+    display: none !important;
+}
+
+.main_header{
+    border: 4px solid rgb(96, 110, 133);
+    border-radius: 8px;
+    height: 100px;
+    width: 100%;
+} 
+
+.logo, .score_board{
+    display: flex;
+}
+
+.logo{
+    justify-content: flex-start;
+    margin: 0;
+    height: 100%;
+}
+
+.logo img{
+    display: block;
+    transform: scale(0.7);
+}
+
+.score_board{
+    height: 100%;
+    width: 80px;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(247,247,247);
+    border-radius: 5px;
+}
+
+.score_title{
+    height: fit-content;
+    color: rgb(42, 70, 192);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 12px auto 0;
+}
+
+.score{
+    font-size: 36px;
+    font-weight: 700;
+    color: rgb(59, 67, 99);
+    line-height: 40px;
+}
+
+/* MAIN */
+#main_screen, #battle_screen{
+    margin: 0 auto;
+}
+
+#main_screen{
+    display: grid;
+    width: fit-content;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.triangle_photo{
+    transform: scale(.7);
+}
+
+.triangle{
+    width: fit-content;
+    grid-area: 1 / 1 / 3 / 3;
+    align-self: center;
+    justify-self: center;
+    position: relative;
+    z-index: -1;
+}
+
+.white_bg, .outer_bg, .p2_placeholder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.white_bg{
+    width: 100px;
+    height: 100px;
+    background: rgb(255,255,255);
+    box-shadow: inset 0 6px 2px 0 rgb(184, 190, 212); 
+}
+
+.p2_placeholder{
+    background: rgb(22, 33, 61);
+    box-shadow: none;
+}
+
+.outer_bg, .p2_placeholder{
+    position: relative;
+    width: 135px;
+    height: 135px;
+}
+
+.win::after{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    background: radial-gradient(circle farthest-corner at center center, 
+                                rgba(96, 110, 133, .3) 45%, 
+                                rgba(96, 110, 133, .2) 0%,
+                                rgba(96, 110, 133, .2) 60%, 
+                                rgba(96, 110, 133, .1) 0%, 
+                                rgba(96, 110, 133, .1) 100%);
+}
+
+#paper{
+    grid-area: 1 / 1 / 2 / 2;
+    background: rgb(86, 113, 245);
+    box-shadow: inset 0 -6px 2px 0 rgb(40, 68, 197);
+    justify-self: start;
+    align-self: start;
+}
+
+#scissor{
+    grid-area: 1 / 2 / 2 / 3;
+    background: rgb(236, 169, 34);
+    box-shadow: inset 0 -6px 2px 0  rgb(196, 109, 15);
+    justify-self: end;
+    align-self: start;
+}
+
+#rock{
+    grid-area: 2 / 1 / 3 / 3;
+    background: rgb(220, 46, 78);
+    box-shadow: inset 0 -6px 2px 0 rgb(162, 18, 49);
+    justify-self: center;
+    align-self: end;
+}
+
+
+
+/* battle_screen */
+#battle_screen{
+    display: grid;
+    width: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 60px;
+}
+
+.result_container{
+    grid-area: 2 / 1 / 3/ 3;
+    width: 100%;
+}
+
+#player1, #player2{
+    margin: 0 auto;
+}
+
+#player1{
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.result, .play_again{
+    display: block;
+    text-align: center;
+}
+
+.result{
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 auto 24px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 4px;
+}
+
+.picked{
+    margin-top: 26px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.play_again{
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    width: 100%;    
+    max-width: 220px;
+    padding: 16px 0;
+    margin: 0 auto;
+    border-radius: 7px;
+    color: rgb(59, 67, 99);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 2px 0 rgb(20, 21, 57);
+}
+
+@media (min-width: 800px){
+    .flex{
+        justify-content: flex-start;
+        padding: 46px;
+    }
+
+    #rules{
+        width: auto;
+        height: auto;
+        border-radius: 10px;
+        padding: 32px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.5fr 2fr;
+        top: calc(50%);
+        left: calc(50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .rules_title{
+        grid-area: 1 / 1 / 2 / 2;
+        align-self: start;
+    }
+
+    .rules_title h4{
+        margin: 0;
+    }
+
+    .rules_close{
+        grid-area: 1 / 2 / 2 / 3;
+        align-self: start;
+        justify-self: end;
+    }
+
+    .rules_container{
+        grid-area: 2 / 1 / 3 / 3;
+        align-self: center;
+        justify-self: center;
+    }
+
+    main{
+        margin-top: 80px;
+    }
+
+    .logo img, .triangle_photo{
+        transform: scale(1);
+    }
+
+    .header{
+        padding: 16px;
+        align-items: center;
+        height: auto;
+    }
+
+    .main_header{
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .score_board{
+        height: auto;
+        width: 150px;
+        height: 115px;
+    }
+
+    .score_title{
+        font-size: 12px;
+        margin-top: 20px;
+    }
+
+    .score{
+        height: 100%;
+        font-size: 56px;
+        line-height: 60px;
+        margin: 0 auto;
+    }
+
+    .triangle{
+        height: 430px;
+        width: 480px;
+    }
+
+    .triangle_photo{
+        position: absolute;
+        top: calc(50% - 139px);
+        left: calc(50% - 156.5px);
+    }   
+
+    .white_bg,.p2_placeholder{
+        height: 150px;
+        width: 150px;
+    }
+
+    .white_bg img{
+        transform: scale(1.3);
+    }
+    .outer_bg{
+        height: 200px;
+        width: 200px;
+    }
+
+    .btn_rule{
+        position: absolute;
+        right: 46px;
+        bottom: 46px;
+    }
+    
+    #battle_screen{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 945px;
+    }
+
+    #player1{
+        order: 0;
+    }
+    #player2{
+        order: 2;
+    }
+    .result_container{
+        order: 1;
+    }
+
+    #player1, #player2{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #player1 img, #player2 img{
+        transform: scale(1.7);
+
+    }
+    #player1 .white_bg, #player2 .white_bg{
+        height: 225px;
+        width: 225px;
+    }
+
+    #player1 .outer_bg, #player2 .outer_bg, .p2{
+        height: 300px;
+        width: 300px;
+    }
+
+    .picked{
+        font-size: 20px;
+        margin: 0 auto 64px;
+    }
+
+    .win::after{
+        width: 250%;
+        height: 250%;
+    }
+}
