@@ -379,8 +379,9 @@ button{
 
     .triangle_photo{
         position: absolute;
-        top: calc(50% - 139px);
-        left: calc(50% - 156.5px);
+        top: calc(50%);
+        left: calc(50%);
+        transform: translate(-50%, -50%);
     }   
 
     .white_bg,.p2_placeholder{
